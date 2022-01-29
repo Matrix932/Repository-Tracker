@@ -1,9 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace WebApplication22.Models
 {
     public class GithubUserDetails
     {
+        [Key]
         [JsonPropertyName("login")]
         public string UserId { get; set; }
 
