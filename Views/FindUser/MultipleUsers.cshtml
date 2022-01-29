@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication22.Models.GithubUserDetails>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+
+    h3,h2 {
+        color:#FF6C00 !important;
+    }
+    .card{
+        border:1px solid white !important;
+        background-color:#A0204C !important;
+
+    }
+
+    .str{
+        border-bottom:3px solid white !important;
+    }
+</style>
+
+
+@foreach(GithubUserDetails user in Model)
+{
+    <div class="text-center str pb-4 mb-3">
+         <h2>Here are all @user.Name's aka @user.UserId repositories</h2>
+         <div  class="row justify-content-center">
+            @foreach(var repo in user.Repositories)
+            {
+             <div class="col-md-4 mt-4 mr-2 card">
+            <h3>@repo.Name</h3>
+            <p>@repo.Description</p>
+            <p>Repository language - @repo.Language</p>
+
+        </div>
+            }
+
+        </div>
+
+    </div>
+
+
+
+}
+<div class="text-center mt-2"><a asp-action="Index" asp-controller="Home">Search another user</a></div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
