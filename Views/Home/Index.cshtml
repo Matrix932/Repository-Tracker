@@ -2,36 +2,36 @@
     ViewData["Title"] = "Home Page";
 }
 <style>
-     ::placeholder {
-  color: #FF6C00 !important;
-}
-    h2,h5,h6{
-        color:#FF6C00 !important;
+    ::placeholder {
+        color: #FF6C00 !important;
+    }
 
+    h2, h5, h6 {
+        color: #FF6C00 !important;
     }
-    #one{
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-    }
-    .mainInput,.btnSubmit{
-        background-color:#A0204C !important;
-        color:#FF6C00 !important;
-    }
-   
 
+    #one {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .mainInput, .btnSubmit {
+        background-color: #A0204C !important;
+        color: #FF6C00 !important;
+    }
 </style>
 <div class="text-center" id="one">
-   
+
     <h2 class="mb-4">Welcome to the Github repository tracker</h2>
     <form method="get" asp-action="Index" asp-controller="FindUser" class="mt-4">
-        <input  class="form-control mainInput"  type="text" id="txtUserName" name="UserName" placeholder="Enter Github username"/>
-        <input  type="submit" class="btn mt-4 mb-4 btnSubmit" asp-action="Index" asp-controller="FindUser" value="Search"/>
+        <input class="form-control mainInput" type="text" id="txtUserName" name="UserName" placeholder="Enter Github username" />
+        <input type="submit" class="btn mt-4 mb-4 btnSubmit" asp-action="Index" asp-controller="FindUser" value="Search" />
     </form>
 
     <form method="get" asp-action="MultipleUsers" asp-controller="FindUser" class="mt-4">
-        <input  class="form-control mainInput"  type="text" id="txtUserName" name="UserName" placeholder="Enter multiple username's separated by ,"/>
-        <input  type="submit" class="btn mt-4 btnSubmit" asp-action="MultipleUsers" asp-controller="FindUser" value="Search"/>
+        <input class="form-control mainInput" type="text" id="txtUserName" name="UserName" placeholder="Enter multiple username's separated by ," />
+        <input type="submit" class="btn mt-4 btnSubmit" asp-action="MultipleUsers" asp-controller="FindUser" value="Search" />
     </form>
 </div>

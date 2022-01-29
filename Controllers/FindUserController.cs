@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,26 +10,22 @@ using WebApplication22.Models;
 
 namespace WebApplication22.Controllers
 {
-
-
     public class FindUserController : Controller
     {
-
         private readonly JsonSerializerOptions _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
-        public async Task<IActionResult> Index(string UserName,[FromServices] IHttpClientFactory _httpClientFactory)
+        public async Task<IActionResult> Index(string UserName, [FromServices] IHttpClientFactory _httpClientFactory)
         {
             if (String.IsNullOrEmpty(UserName))
             {
                 string message = "Input field cannot be empty";
-                return RedirectToAction("Index", "Home",message);
-  
+                return RedirectToAction("Index", "Home", message);
             }
             var client = _httpClientFactory.CreateClient(name: "GithubUser");
-            
-            var response = await client.GetAsync(requestUri: "users/" + UserName);
-            if (response.IsSuccessStatusCode) {
 
+            var response = await client.GetAsync(requestUri: "users/" + UserName);
+            if (response.IsSuccessStatusCode)
+            {
                 var user = await response.Content.ReadFromJsonAsync<GithubUserDetails>();
 
                 var responseRepos = await client.GetAsync(requestUri: "users/" + UserName + "/repos");
@@ -46,7 +41,6 @@ namespace WebApplication22.Controllers
                 string message = "No user with found";
                 return RedirectToAction("Index", "Home", message);
             }
-            
         }
 
         public async Task<IActionResult> MultipleUsers(string UserName, [FromServices] IHttpClientFactory _httpClientFactory)
@@ -56,24 +50,21 @@ namespace WebApplication22.Controllers
             {
                 string message = "Input field cannot be empty";
                 return RedirectToAction("Index", "Home", message);
-
             }
             string trimmed = String.Concat(UserName.Where(c => !Char.IsWhiteSpace(c)));
-            String[]  usernames =trimmed.Split(",");
-
+            String[] usernames = trimmed.Split(",");
 
             var client = _httpClientFactory.CreateClient(name: "GithubUser");
 
             foreach (string username in usernames)
             {
-                var response = await client.GetAsync(requestUri: "users/"+username);
+                var response = await client.GetAsync(requestUri: "users/" + username);
 
                 if (response.IsSuccessStatusCode)
                 {
-
                     var user = await response.Content.ReadFromJsonAsync<GithubUserDetails>();
 
-                    var responseRepos = await client.GetAsync(requestUri: "users/"+username +"/repos");
+                    var responseRepos = await client.GetAsync(requestUri: "users/" + username + "/repos");
                     var stream = await responseRepos.Content.ReadAsStreamAsync();
                     var repos = await JsonSerializer.DeserializeAsync<GithubRepository[]>(stream, _options);
 
@@ -87,10 +78,6 @@ namespace WebApplication22.Controllers
                 }
             }
             return View(userList);
-
-            
-            
-
         }
     }
 }

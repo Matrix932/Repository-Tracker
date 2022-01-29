@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+
 namespace WebApplication22.Models
 {
     public class GithubRepository
@@ -10,6 +11,7 @@ namespace WebApplication22.Models
 
         [JsonPropertyName("html_url")]
         public string HtmlUrl { get; set; }
+
         [JsonPropertyName("watchers_count")]
         public int WatchersCount { get; set; }
     }

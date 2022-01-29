@@ -6,45 +6,34 @@
 
 <style>
 
-    h3,h2 {
-        color:#FF6C00 !important;
+    h3, h2 {
+        color: #FF6C00 !important;
     }
-    .card{
-        border:1px solid white !important;
-        background-color:#A0204C !important;
 
+    .card {
+        border: 1px solid white !important;
+        background-color: #A0204C !important;
     }
 </style>
-
-
 
 <div class="text-center">
     <h2>Here are all @Model.Name's aka @Model.UserId repositories</h2>
     <div class="row justify-content-center">
-    @foreach(var repo in Model.Repositories)
-    {
-        <div class="col-md-4 mt-4 mr-2 card">
-            <h3>@repo.Name</h3>
-            <p>@repo.Description</p>
-            <p>Repository language - @repo.Language</p>
-            <p><a style="color:white;" href="@repo.HtmlUrl">Link -  @repo.HtmlUrl</a></p>
-            <p>Watchers Count - @repo.WatchersCount</p>
+        @foreach (var repo in Model.Repositories)
+        {
+            <div class="col-md-4 mt-4 mr-2 card">
+                <h3>@repo.Name</h3>
+                <p>@repo.Description</p>
+                <p>Repository language - @repo.Language</p>
+                <p><a style="color:white;" href="@repo.HtmlUrl">Link -  @repo.HtmlUrl</a></p>
+                <p>Watchers Count - @repo.WatchersCount</p>
+            </div>
 
-        </div>
-        
-    }
+        }
     </div>
 
-    
-    
     <div class="mt-2"><a asp-action="Index" asp-controller="Home">Search another user</a></div>
-   
 </div>
-
-
-
-
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

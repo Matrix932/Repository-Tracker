@@ -1,15 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApplication22.Models;
 
 namespace WebApplication22.Controllers
 {
-   
     public class HomeController : Controller
     {
         public static string errorMessage;
@@ -20,7 +15,7 @@ namespace WebApplication22.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(string ? message)
+        public IActionResult Index(string? message)
         {
             return View();
         }

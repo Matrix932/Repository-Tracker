@@ -1,13 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebApplication22
 {
@@ -26,13 +22,11 @@ namespace WebApplication22
             services.AddControllersWithViews();
             services.AddHttpClient(name: "GithubUser", configureClient: client =>
             {
-
-
                 client.BaseAddress = new Uri("https://api.github.com/");
                 client.DefaultRequestHeaders.Add(name: "Accept", value: "application/vnd.github.v3+json");
                 client.DefaultRequestHeaders.Add(name: "User-Agent", value: "WebApplication22");
-                client.DefaultRequestHeaders.Add(name: "Authorization", value: "token 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");
-               }); ;
+                client.DefaultRequestHeaders.Add(name: "Authorization", value: "token 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");
+            }); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
