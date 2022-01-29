@@ -11,4 +11,4 @@ The value of the token with your own personal Acces Token
 
 To generate acces token to to github.com->settings->developer settings->personal acces token
 
-In order to establish connection install EntityFrameworkTools in nugetPackage manager and type add-migration in package manager console
+In order to establish connection to SQlDatabase install EntityFrameworkTools in nugetPackage manager and type add-migration in package manager console
