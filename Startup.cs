@@ -29,7 +29,7 @@ namespace WebApplication22
                 client.BaseAddress = new Uri("https://api.github.com/");
                 client.DefaultRequestHeaders.Add(name: "Accept", value: "application/vnd.github.v3+json");
                 client.DefaultRequestHeaders.Add(name: "User-Agent", value: "WebApplication22");
-                client.DefaultRequestHeaders.Add(name: "Authorization", value: "token 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");
+                //client.DefaultRequestHeaders.Add(name: "Authorization", value: "token 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");
             }); ;
         }
 

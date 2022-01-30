@@ -9,6 +9,19 @@ namespace WebApplication22.Models
         [JsonPropertyName("login")]
         public string UserId { get; set; }
 
+        public GithubUserDetails(string userId, string name, string location, string type, GithubRepository[] repositories)
+        {
+            UserId = userId;
+            Name = name;
+            Location = location;
+            this.type = type;
+            Repositories = repositories;
+        }
+
+        public GithubUserDetails()
+        {
+        }
+
         public string Name { get; set; }
 
         public string Location { get; set; }
